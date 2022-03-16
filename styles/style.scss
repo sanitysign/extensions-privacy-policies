@@ -1,0 +1,292 @@
+@import 'normalize';
+@import 'visuallyhidden';
+@import 'fonts';
+@import 'mixins';
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+
+  --white: #fff;
+  --grey-light-ultra: #f2f2f7;
+  --grey-lighter: #e3e3e3;
+  --grey: #8f8f8f;
+  --grey-dark: #777;
+  --dark: #1c1c1c;
+  --blue: #3873e7;
+  --blue-2: #3c7ad7;
+
+  --text-main: var(--dark);
+
+  --bg-white: var(--white);
+  --bg-main: var(--grey-light-ultra);
+
+  --highlight: var(--blue);
+  --accent: var(--blue-2);
+
+  --scroll: var(--grey);
+  --scroll-hover: var(--grey-dark);
+  --scroll-width: 8px;
+}
+
+//add custom scrollbar for Firefox
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scroll) transparent;
+  }
+}
+
+//using polyfill for focus-visible (Safari is the best): Start
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:focus:not(.focus-visible) {
+  outline: none;
+}
+//using polyfill for focus-visible: End
+
+::-webkit-scrollbar {
+  width: var(--scroll-width);
+  height: var(--scroll-width);
+
+  &-track {
+    background-color: transparent;
+    border: 1px solid transparent;
+
+    &:hover {
+      border-color: #aaaa;
+    }
+  }
+
+  &-thumb {
+    background-color: var(--scroll);
+    min-height: 30px;
+
+    &:hover {
+      background-color: var(--scroll-hover);
+    }
+  }
+
+  &-corner {
+    display: none;
+  }
+}
+
+a,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  line-height: 1;
+}
+
+input {
+  font: inherit;
+}
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+.visible {
+  display: block;
+}
+
+body {
+  font-family: Nunito, Arial, Helvetica, sans-serif;
+  font-size: 1.8rem;
+  color: var(--text-main);
+  line-height: 1.4;
+  font-weight: 400;
+  background-color: var(--bg-main);
+  min-height: 100vh;
+}
+
+
+.link {
+  position: relative;
+  transition: opacity .15s ease-in-out;
+  outline-offset: 2px;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &.focus-visible {
+    outline: 2px solid var(--highlight);
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  &__link {
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    border-radius: 4px;
+
+    &--github {
+      background-image: url(../img/github.svg);
+    }
+
+    &--linkedin {
+      background-image: url(../img/linkedin.svg);
+    }
+
+    &--email {
+      background-image: url(../img/email.svg);
+    }
+  }
+}
+
+.ext {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow:  16px 16px 32px #ceced2,
+             -16px -16px 32px #ffffff;
+
+  &__heading {
+    font-size: 3.2rem;
+    margin: 0 0 24px;
+  }
+
+  &__link-text {
+    color: var(--accent);
+    padding-right: 42px;
+    border-radius: 4px;
+
+    &.inactive::after {
+      display: none;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 2px;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      background-image: url(../img/link-45deg-blue.svg);
+    }
+  }
+
+  &__link-img {
+    display: block;
+    width: 128px;
+    height: 128px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    border-radius: 50%;
+
+    &:hover {
+      opacity: 1;
+    }
+    
+    &--scroll {
+      background-image: url(../img/scroll.svg);
+    }
+  }
+
+  &__list {
+    margin-left: 24px;
+  }
+
+  &__item {
+    &::marker {
+      color: var(--accent);
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.container {
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: var(--bg-white);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+
+  &__container {
+    padding-block: 20px;
+    display: flex;
+  }
+
+  &__author {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  &__job {
+    font-weight: 400;
+    font-size: 1.8rem;
+  }
+
+  &__right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.policies {
+  &__container {
+    padding: 40px;
+  }
+
+  &__heading {
+    margin: 0 0 32px;
+    font-size: 3.6rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}
