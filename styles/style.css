@@ -481,4 +481,44 @@ body {
   font-size: 3.6rem;
   font-weight: 700;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .ext {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: 16px;
+  }
+  .ext__left {
+    margin-bottom: 16px;
+  }
+  .ext__heading {
+    font-size: 2rem;
+  }
+
+  .contacts {
+    gap: 8px;
+  }
+  .contacts__link {
+    width: 24px;
+    height: 24px;
+  }
+
+  .container {
+    padding-inline: 10px;
+  }
+
+  .header__author {
+    font-size: 1.8rem;
+  }
+  .header__job {
+    font-size: 1.6rem;
+  }
+
+  .policies__container {
+    padding-inline: 20px;
+  }
+  .policies__heading {
+    font-size: 2.4rem;
+  }
 }/*# sourceMappingURL=style.css.map */

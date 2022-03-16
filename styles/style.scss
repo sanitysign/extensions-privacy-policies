@@ -290,3 +290,52 @@ body {
     text-align: center;
   }
 }
+
+@include tablet-portrait {
+  .ext {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-inline: 16px;
+
+    &__left {
+      margin-bottom: 16px;
+    }
+
+    &__heading {
+      font-size: 2rem;
+    }
+  }
+
+  .contacts {
+    gap: 8px;
+
+    &__link {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .container {
+    padding-inline: 10px;
+  }
+
+  .header {
+    &__author {
+      font-size: 1.8rem;
+    }
+
+    &__job {
+      font-size: 1.6rem;
+    }
+  }
+
+  .policies {
+    &__container {
+      padding-inline: 20px;
+    }
+
+    &__heading {
+      font-size: 2.4rem;
+    }
+  }
+}
