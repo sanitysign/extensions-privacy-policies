@@ -386,6 +386,7 @@ body {
 }
 
 .ext {
+  margin-bottom: 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -403,6 +404,7 @@ body {
   color: var(--accent);
   padding-right: 42px;
   border-radius: 4px;
+  display: inline-block;
 }
 .ext__link-text.inactive::after {
   display: none;
@@ -434,6 +436,10 @@ body {
 }
 .ext__link-img--scroll {
   background-image: url(../img/scroll.svg);
+}
+.ext__link-img--mousetube {
+  border-radius: 10px;
+  background-image: url(../img/mousetube.svg);
 }
 .ext__list {
   margin-left: 24px;
